@@ -42,7 +42,7 @@ $(document).ready(function(){
       if (isIos) {
         setTimeout(function() {
           if ((new Date()).getTime() - visitedAt < 2000) {
-            
+                alert("will go to : " + _APP_INSTALL_URL_IOS);
               
               
                 location.href = _APP_INSTALL_URL_IOS;
@@ -50,7 +50,7 @@ $(document).ready(function(){
             
           }
         }, 500);
-        
+        alert('this this : ' + _APP_MOVE_SCHEMA + _APP_MOVE_CHROME_SCHEMA + "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns");
         location.href = _APP_MOVE_SCHEMA + _APP_MOVE_CHROME_SCHEMA + "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
       }else if (uagentLow.search("android") > -1) {
         chrome25 = uagentLow.search("chrome") > -1 && navigator.appVersion.match(/Chrome\/\d+.\d+/)[0].split("/")[1] > 25;

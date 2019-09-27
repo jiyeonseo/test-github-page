@@ -24,6 +24,86 @@
     <a href="https://apps.apple.com/us/app/%EC%9D%B4%EB%A7%88%ED%8A%B8-%EB%A7%A4%EC%9E%A5%EC%97%90%EC%84%9C-%EC%A6%90%EA%B8%B0%EB%8A%94-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%95%9C-%ED%98%9C%ED%83%9D/id397728319"> this is test link link to app store  </a>                                                 
     <a href="emart-today://open_main_webpage/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns"> This is app link </a>
     <script type="text/javascript" src="https://emartapp.emart.com/js/libs/jquery.min.js"></script>
+    <script type="text/javascript">
+      var _APP_INSTALL_URL_IOS = 'http://itunes.apple.com/kr/app/id397728319?mt=8';
+var _APP_INSTALL_URL_ANDROID = 'market://details?id=com.emart.today';
+var _APP_MOVE_SCHEMA = "emart-today://";
+var _APP_MOVE_CHROME_SCHEMA = "open_main_webpage";
+$(document).ready(function(){
+  var agent = navigator.userAgent;
+  var uagentLow = navigator.userAgent.toLocaleLowerCase();
+  var isIos = (/(ipod|iphone|ipad)/i).test(agent);  //ios
+  var isAndroid = (/(Android)/i).test(agent);     //android 
+  var visitedAt = (new Date()).getTime();
+      
+      if (isIos) {
+        setTimeout(function() {
+          if ((new Date()).getTime() - visitedAt < 2000) {
+            
+              
+              
+                location.href = _APP_INSTALL_URL_IOS;
+              
+            
+          }
+        }, 500);
+
+       
+        location.href = _APP_MOVE_SCHEMA + _APP_MOVE_CHROME_SCHEMA + "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
+      }else if (uagentLow.search("android") > -1) {
+        chrome25 = uagentLow.search("chrome") > -1 && navigator.appVersion.match(/Chrome\/\d+.\d+/)[0].split("/")[1] > 25;
+        kitkatWebview = uagentLow.indexOf("naver") != -1 || uagentLow.indexOf("daum") != -1;
+    
+          if (chrome25 && !kitkatWebview) {
+            // 안드로이드의 크롬에서는 intent만 동작하기 때문에 intent로 호출해야함
+            setTimeout(function() {
+              var schemeUrl  = "intent://";
+                schemeUrl += _APP_MOVE_CHROME_SCHEMA;
+                schemeUrl += "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
+                schemeUrl += "#Intent;";
+                schemeUrl += "scheme=emart-today;"; 
+                schemeUrl += "package="+_APP_INSTALL_URL_ANDROID.split("?id=")[1]+";";
+                
+                schemeUrl += "end;";
+                
+                location.href = schemeUrl;
+            }, 500);
+          } else {
+            setTimeout(function() {
+              if ((new Date()).getTime() - visitedAt < 2000) {
+                
+                  
+                  
+                    location.href = _APP_INSTALL_URL_ANDROID;
+                  
+                
+              }
+            }, 500);
+        
+            if(!navigator.userAgent.match(/Firefox/)){
+              var schemeUrl = _APP_MOVE_SCHEMA;
+              schemeUrl += _APP_MOVE_CHROME_SCHEMA;
+              schemeUrl += "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
+            
+              var iframe = document.createElement('iframe');
+              iframe.style.visibility = 'hidden';
+              iframe.src = schemeUrl;
+              document.body.appendChild(iframe);
+              document.body.removeChild(iframe);
+            }
+          }
+      } else {
+        setTimeout(function() {
+          if ((new Date()).getTime() - visitedAt < 2000) {
+            location.href = "https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
+          }
+        }, 500);
+      }
+    
+  
+});
+    </script>
+    
     
   </body>
 </html>

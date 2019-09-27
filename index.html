@@ -52,7 +52,8 @@ $(document).ready(function(){
           }
         }, 500);
         alert('this this : ' + _APP_MOVE_SCHEMA + _APP_MOVE_CHROME_SCHEMA + "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns");
-        location.href = _APP_MOVE_SCHEMA + _APP_MOVE_CHROME_SCHEMA + "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
+//        location.href = _APP_MOVE_SCHEMA + _APP_MOVE_CHROME_SCHEMA + "/?link=https://emartapp.emart.com/event/detail/goodDate.do?trcknCode=promotion_sns";
+location.href = _APP_INSTALL_URL_IOS;
       }else if (uagentLow.search("android") > -1) {
         chrome25 = uagentLow.search("chrome") > -1 && navigator.appVersion.match(/Chrome\/\d+.\d+/)[0].split("/")[1] > 25;
         kitkatWebview = uagentLow.indexOf("naver") != -1 || uagentLow.indexOf("daum") != -1;
